@@ -2,7 +2,6 @@ import os
 from datetime import datetime, timezone
 
 import httpx
-import uvicorn
 from dotenv import load_dotenv
 from fastapi import FastAPI, Request, status
 from fastapi.exceptions import HTTPException, RequestValidationError
@@ -108,7 +107,3 @@ async def classify(name: str | None = None):
             content={"status": "error", "message": "Something went wrong"},
             status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
         )
-
-
-if __name__ == "__main__":
-    uvicorn.run(app)
